@@ -17,7 +17,7 @@ const CatLoggr = require("cat-loggr")
 client.logger = new CatLoggr()
 client.login(process.env.TIMBAK)
 require("./Uptime.js")();
-require("./ExtendedMessage");
+require("./InlineMessage");
 client.commands = new Discord.Collection()
 client.prefix = PREFIX
 client.aliases = new Discord.Collection()
