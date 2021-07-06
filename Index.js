@@ -65,22 +65,22 @@ client.on("warn", (info) => client.logger.warn(info))
 client.on("error", (error) => client.logger.error(error))
 
 // Import Commands
-fs.readdir("./commands/Util/", (_err, files) => {
+fs.readdir("./Commands/Util/", (_err, files) => {
     const jsFiles = files.filter(f => f.split(".").pop() === "js")
     if (jsFiles.length <= 0) return client.logger.error("I can't find the command!")
     jsFiles.forEach((file) => {
-        const cmd = require(`./commands/Util/${file}`)
+        const cmd = require(`./Commands/Util/${file}`)
         client.logger.init(`Loaded ${file}`)
         client.commands.set(cmd.name, cmd)
         if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name))
     })
 })
 
-fs.readdir("./commands/Moderation/", (_err, files) => {
+fs.readdir("./Commands/Moderation/", (_err, files) => {
     const jsFiles = files.filter(f => f.split(".").pop() === "js")
     if (jsFiles.length <= 0) return client.logger.error("I can't find the command!")
     jsFiles.forEach((file) => {
-        const cmd = require(`./commands/Moderation/${file}`)
+        const cmd = require(`./Commands/Moderation/${file}`)
         client.logger.init(`Loaded ${file}`)
         client.commands.set(cmd.name, cmd)
         if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name))
@@ -88,11 +88,11 @@ fs.readdir("./commands/Moderation/", (_err, files) => {
 })
 
 // Import Music Commands
-fs.readdir("./commands/Music/", (_err, files) => {
+fs.readdir("./Commands/Music/", (_err, files) => {
     const jsFiles = files.filter(f => f.split(".").pop() === "js")
     if (jsFiles.length <= 0) return client.logger.error("I can't find the command!")
     jsFiles.forEach((file) => {
-        const cmd = require(`./commands/Music/${file}`)
+        const cmd = require(`./Commands/Music/${file}`)
         client.logger.init(`Music Loaded ${file}`)
         client.commands.set(cmd.name, cmd)
         if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name))
