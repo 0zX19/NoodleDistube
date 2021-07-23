@@ -76,11 +76,11 @@ fs.readdir("./Commands/Util/", (_err, files) => {
     })
 })
 
-fs.readdir("./Commands/Moderation/", (_err, files) => {
+fs.readdir("./Commands/Moderate/", (_err, files) => {
     const jsFiles = files.filter(f => f.split(".").pop() === "js")
     if (jsFiles.length <= 0) return client.logger.error("I can't find the command!")
     jsFiles.forEach((file) => {
-        const cmd = require(`./Commands/Moderation/${file}`)
+        const cmd = require(`./Commands/Moderate/${file}`)
         client.logger.init(`Loaded ${file}`)
         client.commands.set(cmd.name, cmd)
         if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name))
