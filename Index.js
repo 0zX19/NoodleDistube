@@ -9,7 +9,7 @@ const client = new Discord.Client({
     cacheChannels: true
 })
 const fs = require("fs")
-const { PREFIX, YTCK, TOPKEN } = require("./config.json")
+const { PREFIX } = require("./config.json")
 const filters = require("./filters.json")
 const DisTube = require("distube")
 const CatLoggr = require("cat-loggr")
