@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const { getData } = require("spotify-url-info")
+const { getData, getPreview, getTracks } = require("spotify-url-info")
 
 module.exports = {
     name: "Play",
