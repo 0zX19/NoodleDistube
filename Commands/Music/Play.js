@@ -16,7 +16,7 @@ module.exports = {
         const playEmbed = new MessageEmbed()
         if (!string) return message.inlineReply("Input a title to play")
         // spotify
-     /*   const spourl = /^(https?:\/\/)+?(www\.)?(open\.spotify\.com)\/(track)\/.+$/gi
+        const spourl = /^(https?:\/\/)+?(www\.)?(open\.spotify\.com)\/(track)\/.+$/gi
         const spoalurl = /^(https?:\/\/)+?(www\.)?(open\.spotify\.com)\/(album)\/.+$/gi
         const spoplurl = /^(https?:\/\/)+?(www\.)?(open\.spotify\.com)\/(playlist)\/.+$/gi
         const sposhowurl = /^(https?:\/\/)+?(www\.)?(open\.spotify\.com)\/(show)\/.+$/gi
@@ -52,14 +52,14 @@ module.exports = {
                     }
                     tracks.push(results[0].url)
                 }
-                //await client.distube.playCustomPlaylist(message, tracks, { name: playlist.name })
+                await client.distube.playCustomPlaylist(message, tracks, { name: playlist.name })
             } catch (e) {
                 message.channel.send(`An error has occurred, data cant be execute`)
             }
         } else if (sposhowurl.test(string) || spoepiurl.test(string)) {
             return message.channel.send("Unfortunately, Spotify podcasts are not supported.")
         } else if (!spourl.test(string) || !spoalurl.test(string) || !spoplurl.test(string) || !sposhowurl.test(string) || !spoepiurl.test(string)) {
-          */
+          
             try {
                 message.channel.send("<a:loading1:826070004952465439> Loading...").then(d => d.delete({timeout : 2000}))
                 client.distube.play(message, string)
